@@ -5,10 +5,15 @@ import React,{Component} from "react";
         //match匹配结果，如果匹配上就是对象，匹配不上就是null
         //location当前路径pathname
 		console.log(this.props);
+        let id=this.props.match.params.id;
+         let userStr=localStorage.getItem("users");
+          let users=userStr ? JSON.parse(userStr):[];
+          let user=users.find(user=>user.id==id);
  		return (
 			<div>
 				<div>
-				{this.props.match.params.id}
+				id:{user.id}
+				姓名:{user.name}
 				</div>
 			</div>
  		)

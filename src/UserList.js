@@ -5,13 +5,14 @@ import {Link} from "react-router-dom"
      constructor(){
          super();
          this.state={users:[]};
-     }
-     componentWillMount(){
+     };
+     componentDidMount(){
          //从缓存中读取用户列表字符串null字符串
          let userStr=localStorage.getItem("users");
          //转为对象数组
-         let users=userStr;
-         this.setState({users});
+        console.log(userStr);
+         let users=userStr ? JSON.parse(userStr):[];
+         this.setState({users})
      }
  	render(){
         console.log(this.props);
@@ -22,8 +23,12 @@ import {Link} from "react-router-dom"
          //<li className="list-group-item"><Link to="/user/userdetail/2">李四</Link></li>
  		return (
  			<ul className="list-group">
-                <li ><Link to='/user/UserDetail/1'>sss</Link></li>
-                <li ><Link to='/user/UserDetail/2'>ddd</Link></li>
+                {
+                    this.state.users.map((user,index)=>(
+                        <li className="list-group-item" key={index}><Link to={"/user/userdetail/"+user.id}>{user.name}</Link></li>
+                        )
+                    )
+                }
 
  			</ul>
  		)
