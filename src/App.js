@@ -4,6 +4,11 @@ import Home from './Home'
 import User from './User'
 import  'bootstrap/dist/css/bootstrap.css'
 import Profile from './Profile'
+import ProtectRouter from'./ProtectRouter'
+import Login from './Login'
+/*
+当用户访问个人设置时，先判断用户是否已登录，如果已登录显示个人设置页面，如果没有登录则跳转登录页面
+*/
 let hello=(props)=>{
 	return <div>首页</div>;
 }
@@ -30,6 +35,8 @@ export default (
 				<Route path="/" exact render={hello}/>
 				<Route path="/:name" render={props=><div>{props.match.params.name}</div>}/>
 				<Route path="/user" component={User}/>
+				<Route path="/login" component={Login}/>
+				<ProtectRouter path="/profile" component={Profile}/>
 				<Route path="/profile" component={Profile}/>
 			</Switch>
 			</div>
