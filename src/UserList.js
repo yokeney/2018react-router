@@ -6,7 +6,7 @@ import {Link} from "react-router-dom"
          super();
          this.state={users:[]};
      };
-     componentDidMount(){
+     componentWillMount(){
          //从缓存中读取用户列表字符串null字符串
          let userStr=localStorage.getItem("users");
          //转为对象数组
