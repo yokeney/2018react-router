@@ -1,9 +1,12 @@
 import React from 'react'
-import {BrowserRouter as Router,Route,Link} from 'react-router-dom'
+import {BrowserRouter as Router,Route,Link,Switch} from 'react-router-dom'
 import Home from './Home'
 import User from './User'
 import  'bootstrap/dist/css/bootstrap.css'
 import Profile from './Profile'
+let hello=(props)=>{
+	return <div>首页</div>;
+}
 export default (
 	<Router>
 	<div>
@@ -22,9 +25,13 @@ export default (
 	<div className="container">
 		<div className="row">
 			<div className="col-sm-10">
-			<Route path="/home" component={Home}/>
-			<Route path="/user" component={User}/>
-			<Route path="/profile" component={Profile}/>
+			<Switch>
+				<Route path="/home" component={Home}/>
+				<Route path="/" exact render={hello}/>
+				<Route path="/:name" render={props=><div>{props.match.params.name}</div>}/>
+				<Route path="/user" component={User}/>
+				<Route path="/profile" component={Profile}/>
+			</Switch>
 			</div>
 		</div>
 	</div>

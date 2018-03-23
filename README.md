@@ -7,24 +7,32 @@
 <Route path="/user/add" component={UserAdd} />
 完成初步的路由
 <h1>路由的嵌套</h1>
-在添加一个路由组件<Route path="/user/userdetail/:id" component={UserDetail} />
-在useradd组件上，添加用户操作，操作完跳转路由用 this.props.history.push('/user/list');//相当于winow.location.href
+<h4>在添加一个路由组件<Route path="/user/userdetail/:id" component={UserDetail} /></h4>
+<h5>在useradd组件上，添加用户操作，操作完跳转路由用 this.props.history.push('/user/list');//相当于winow.location.href</h5>
 <p>#ref={ref=>this.name=ref}引用真实的dom元素</p>
-在userlist componentWillMount方法中读取localStorage的数组对象在this.setState({users})在组件中
+<h4>在userlist componentWillMount方法中读取localStorage的数组对象在this.setState({users})在组件中</h4>
 {
 	this.state.users.map((user,index)=>(
 		<li className="list-group-item" key={index}><Link to={"/user/userdetail/"+user.id}>{user.name}</Link></li>
 		)
 	)
 }
-我在map方法踩坑了，结构体
-然后在跳转userDetail组件
-//遍历从localStorage数组与传入的id做匹配
-let user=users.find(user=>user.id==id);获取当个对象
-路由demo
-history跳转路由路径
-match匹配结果，如果匹配上就是对象，匹配不上就是null
-location当前路径pathname
-this.props.history.push('/user/list');
-相当于winow.location.href
-ref={ref=>this.name=ref}引用真实的dom元素
+<h5>我在map方法踩坑了，结构体</h5>
+<h5>然后在跳转userDetail组件</h5>
+<h4>//遍历从localStorage数组与传入的id做匹配</h4>
+<h5>let user=users.find(user=>user.id==id);获取当个对象</h5>
+<ul>
+	<li>history跳转路由路径</li>
+	<li>match匹配结果，如果匹配上就是对象，匹配不上就是null</li>
+	<li>location当前路径pathname</li>
+	<li>this.props.history.push('/user/list');</li>
+	<li>相当于winow.location.href</li>
+	<li>ref={ref=>this.name=ref}引用真实的dom元素</li>
+</ul>
+<h3>Switch匹配</h3>
+<h4>引入Switch</h4>
+<h5>import {BrowserRouter as Router,Route,Link,Switch} from 'react-router-dom'</h5>
+<ul>
+	<li><Route path="/:name" render={props=><div>{props.match.params.name}</div>}/><span>匹配路由name到页面</span></li>
+	<li><Route path="/" exact render={hello}/><span>严格匹配加 exact</span></li>
+</ul>

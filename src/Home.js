@@ -6,7 +6,6 @@ import  'bootstrap/dist/css/bootstrap.css'
  	render(){
  		return (
 			<div className="row">
-                111
             </div>
  		)
  	}
