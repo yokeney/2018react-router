@@ -7,6 +7,7 @@ import Profile from './Profile'
 import ProtectRouter from'./ProtectRouter'
 import Login from './Login'
 import Menu from './Menu'
+import NoFound from './NoFound'
 /*
 当用户访问个人设置时，先判断用户是否已登录，如果已登录显示个人设置页面，如果没有登录则跳转登录页面
 ProtectRouter登录保护路由
@@ -34,12 +35,12 @@ export default (
 	<div className="container">
 		<div className="row">
 			<div className="col-sm-10">
-
 				<Route path="/home" component={Home}/>
 				<Route path="/" exact render={hello}/>
 				<ProtectRouter path="/profile" component={Profile}/>
 				<ProtectRouter path="/user" component={User}/>
 				<Route path="/login" component={Login}/>
+				<Route  component={NoFound}/>
 
 			</div>
 		</div>

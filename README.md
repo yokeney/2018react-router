@@ -58,3 +58,14 @@ rest={path:"/profile"}</span>
    	 return <li  role="presentation" className={match?'active':''}><Link to={props.to}>{props.label}</Link></li>
     }}/></li>
 </ul>
+<h1>再跳转时进行提示</h1>
+<h2>导入import {Prompt} from 'react-router-dom'</h2>
+<h3><Prompt when={this.state.blocking} message={(location)=>`你确定跳转到${location.pathname}`}/></h3>
+<h4>when表示TRUE时，调用message方法 location.pathname是跳转的路径</h4>
+<h1>页面不存在</h1>
+<h4><Route  component={NoFound}/>在NoFound组件中
+import React from 'React'
+export default function(){
+	return <div>页面不存在</div>
+}
+</h4>
