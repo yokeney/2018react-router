@@ -4,7 +4,6 @@ import React,{Component} from "react";
         //history跳转路由路径
         //match匹配结果，如果匹配上就是对象，匹配不上就是null
         //location当前路径pathname
-		console.log(this.props,"obj");
         let id=this.props.match.params.id;
          let userStr=localStorage.getItem("users");
           let users=userStr ? JSON.parse(userStr):[];

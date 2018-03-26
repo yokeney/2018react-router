@@ -36,3 +36,18 @@
 	<li><Route path="/:name" render={props=><div>{props.match.params.name}</div>}/><span>匹配路由name到页面</span></li>
 	<li><Route path="/" exact render={hello}/><span>严格匹配加 exact</span></li>
 </ul>
+<h1>保护路由访问路径</h1>
+<span>定义一个保护路由	<Route path="/login" component={Login}/>创建Login 组件</span>
+<span>
+保护路由访问路径组件
+通过函数定义组件，参数是属性对象
+当一个组件不需要状态的时候可以用函数来声明
+当一个组件需要状态的时候必须要class类声明
+props={path:"/profile",component:profile}
+rest={path:"/profile"}</span>
+<p>export default function({component:Component,...rest}){
+	return <Route {...rest} render={(props)=>localStorage.getItem("login")?<Component/>:<Redirect to={{pathname:'/login',state:{from:props.location.pathname}
+		}}/>
+	}/>
+}</p>
+<span>//跳转登录前的页面</span>

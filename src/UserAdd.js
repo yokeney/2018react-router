@@ -2,7 +2,7 @@ import React,{Component} from "react";
  export default class UserAdd extends Component{
      handleSub=()=>{
          let name=this.name.value;//指向真实dom元素
-         if (name=="") {
+         if (name==="") {
              alert("请输入名字")
              return false;
          }
@@ -29,7 +29,7 @@ import React,{Component} from "react";
                             </label>
                         </div>
                         <div className="form-group">
-                            <input type="text" type="submit" className="btn bnt-primary" />
+                            <input type="text" type="submit"  />
                         </div>
                     </form>
 
