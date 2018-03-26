@@ -51,3 +51,10 @@ rest={path:"/profile"}</span>
 	}/>
 }</p>
 <span>//跳转登录前的页面</span>
+<h1>自定义导航</h1>
+<ul>
+	<li>1加上 <Menu label="个人设置 " to="/profile" />并且创建Menu组件</li>
+	<li>2return <Route path={props.to} children={({match})=>{
+   	 return <li  role="presentation" className={match?'active':''}><Link to={props.to}>{props.label}</Link></li>
+    }}/></li>
+</ul>

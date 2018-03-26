@@ -6,6 +6,7 @@ import  'bootstrap/dist/css/bootstrap.css'
 import Profile from './Profile'
 import ProtectRouter from'./ProtectRouter'
 import Login from './Login'
+import Menu from './Menu'
 /*
 当用户访问个人设置时，先判断用户是否已登录，如果已登录显示个人设置页面，如果没有登录则跳转登录页面
 ProtectRouter登录保护路由
@@ -24,9 +25,9 @@ export default (
 		<a className="navbar-brand" >菜鸟教程</a>
 	</div>
 	<ul className="nav navbar-inverse">
-		<li role="presentation"><Link to="/home">首页</Link></li>
-		<li role="presentation"><Link to="/user">用户管理</Link></li>
-		<li role="presentation"><Link to="/profile">个人设置</Link></li>
+	    <Menu label="首页 " to="/home" />
+	    <Menu label="用户管理 " to="/user" />
+	    <Menu label="个人设置 " to="/profile" />
 	</ul>
 	</div>
 </nav>

@@ -6,11 +6,13 @@ import {Redirect,Route} from 'react-router-dom'
 //当一个组件需要状态的时候必须要class类声明
 //props={path:"/profile",component:profile}
 //rest={path:"/profile"}
+
+ // export default function({component:Component,...rest}){
+ //  return <Route {...rest} render={(props)=>localStorage.getItem("login")?<Component/>:<Redirect to={{pathname:'/login',state:{from:props.location.pathname}
+ // 	 }}/>
+ //  }/>
+ // }
  export default function({component:Component,...rest}){
-	 return <Route {...rest} render={(props)=>
-		 localStorage.getItem("login")?<Component/>:<Redirect to={{
-			 pathname:'/login',
-			 state:{from:props.location.pathname}
-		 }}/>
-	 }/>
+     return <Route {...rest} render={(props)=>localStorage.getItem("login")?<Component/>:<Redirect to={{pathname:'login',state:{from:props.location.pathname}}}/>} />
+
  }
