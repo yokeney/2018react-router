@@ -6,7 +6,7 @@ import React from 'react'
 import {Route,Link} from 'react-router-dom'
 export default function(props){
  return <Route path={props.to} children={({match})=>{
-	 return <li  role="presentation" className={match?'active':''}><Link to={props.to}>{props.label}</Link></li>
+	 return <li  role="presentation" className={match?'active':''}><i className={match?'active'+props.icon:''}></i><Link to={props.to}>{props.label}</Link></li>
  }}/>
 
 }

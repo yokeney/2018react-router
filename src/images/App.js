@@ -8,7 +8,7 @@ import ProtectRouter from'./ProtectRouter'
 import Login from './Login'
 import Menu from './Menu'
 import NoFound from './NoFound'
-import Invest from './Invest'
+import Mi from './Mi'
 /*
 当用户访问个人设置时，先判断用户是否已登录，如果已登录显示个人设置页面，如果没有登录则跳转登录页面
 ProtectRouter登录保护路由
@@ -19,15 +19,24 @@ let hello=(props)=>{
 	return <div>首页</div>;
 }
 export default (
-	<div className="footer">
 	<Router>
 	<div>
-	<nav className="navbar">
+	<nav className="navbar navbar-default ">
+	<div className="container-fluid">
+	<div className="navbar-header">
+		<a className="navbar-brand" >菜鸟教程</a>
+	</div>
 	<ul className="nav">
-		<Menu label="首页 " to="/home" icon="1"/>
-		<Menu label="新手 " to="/user" icon="2"/>
-		<Menu label="投资 " to="/Invest" icon="3"/>
-		<Menu label="我的 " to="/profile" icon="4"/>
+	    <Menu label="首页 " to="/home" />
+	    <Menu label="用户管理 " to="/user" />
+	    <Menu label="个人设置 " to="/profile" />
+	</ul>
+	</div>
+	<ul>
+		<Mi aa="1"></Mi>
+		<Mi aa="2"></Mi>
+		<Mi aa="3"></Mi>
+		<Mi aa="4"></Mi>
 	</ul>
 </nav>
 	<div className="container">
@@ -38,12 +47,10 @@ export default (
 				<ProtectRouter path="/profile" component={Profile}/>
 				<ProtectRouter path="/user" component={User}/>
 				<Route path="/login" component={Login}/>
-				<Route path="/Invest" component={Invest}/>
 				<Route  component={NoFound}/>
 			</div>
 		</div>
 	</div>
 	</div>
 	</Router>
-	</div>
 )
